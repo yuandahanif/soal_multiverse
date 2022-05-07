@@ -17,6 +17,7 @@ const AnswerPopup = ({ children }: { children?: React.ReactNode }) => {
 function App() {
   const [url, setUrl] = useState<string | null>(null);
   const [isFetchingNextStory, setIsFetchingNextStory] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [stories, setStories] = useState<{ [key: string]: any }>({});
   const [answers, setAnswers] = useState<any[]>([]);
 
@@ -33,9 +34,15 @@ function App() {
   const nextQuestionMutation = useMutation((url: string) => fetchJson(url), {
     onSuccess: (story) => {
       setIsFetchingNextStory(false);
+      setErrorMessage(null);
       setStories((s) => {
         return { ...s, [url!]: story };
       });
+    },
+    onError: (err) => {
+      console.error(err);
+      setIsFetchingNextStory(false);
+      setErrorMessage("Error: Timeline tidak dapat dimuat.");
     },
   });
 
@@ -108,9 +115,9 @@ function App() {
                 </button>
               ) : (
                 <>
-                  <div>
-                    Tamat.
-                    <button onClick={restartQuestion}>ulang cerita</button>
+                  <div className="story-section-end">
+                    <span>Tamat.</span>
+                    <button onClick={restartQuestion}>Ulang cerita</button>
                   </div>
                 </>
               )}
@@ -122,6 +129,14 @@ function App() {
         {(query.isLoading || isFetchingNextStory) && (
           <>
             <span>sedang memuat data......</span>
+          </>
+        )}
+
+        {errorMessage && (
+          <>
+            <div className="story-section-end">
+              <span className="message-error">{errorMessage}</span>
+            </div>
           </>
         )}
       </div>
