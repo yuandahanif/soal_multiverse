@@ -1,7 +1,11 @@
 {
   "main_story": "Pada senin pagi yang cerah kau terbangun dengan bersemangat, karena tak seperti senain lainnya hari ini adalah senin yang spesial. Hari ini adalah ahri pertama ujian tengah semester jadi kau harus berangkat lebih awal agar tidak terlambat dan dan akhirnya mengulang :(",
   "options": [
-    { "id": "a", "text": "enggak makan" },
-    { "id": "b", "text": "makan" }
+    {
+      "id": "a",
+      "text": "enggak makan",
+      "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/a.json"
+    },
+    { "id": "b", "text": "makan", "url": "" }
   ]
 }
