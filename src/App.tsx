@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import "./App.css";
 import fetchJson from "./libs/fetcher";
@@ -41,7 +41,10 @@ function App() {
     },
     onError: (err) => {
       console.error(err);
-      console.error("Soal: cari cerita di timeline ini.");
+      console.error("Soal: coba cari cerita buat timeline yang hilang ini.");
+      console.error(
+        "Cara jawab: nanti klo jawabanya ketemu, cara jawabnya juga ada disitu."
+      );
       setIsFetchingNextStory(false);
       setErrorMessage("Error: Timeline tidak dapat dimuat.");
     },
