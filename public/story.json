@@ -7,6 +7,10 @@
       "text": "lansung berangkat ke kampus",
       "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/a.json"
     },
-    { "id": "b", "text": "membeli sarapan terlebih dahulu", "url": "" }
+    {
+      "id": "b",
+      "text": "membeli sarapan terlebih dahulu",
+      "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/b.json"
+    }
   ]
 }
