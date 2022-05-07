@@ -7,7 +7,13 @@ function App() {
     "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json";
 
   const query = useQuery("todos", () => fetchJson(url));
-  return <div className="App">{query.isSuccess && query.data?.main_story}</div>;
+  return (
+    <div className="App">
+      <div className="container">
+        {query.isSuccess && query.data?.main_story}
+      </div>
+    </div>
+  );
 }
 
 export default App;
