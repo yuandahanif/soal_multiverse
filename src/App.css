@@ -1,16 +1,61 @@
 .App {
   background-color: darkgrey;
   min-height: 100vh;
-  padding: 2em;
+  padding: 3em 0;
   display: flex;
   justify-content: center;
   align-items: stretch;
 }
 
 .container {
+  position: relative;
   background-color: whitesmoke;
+  border-radius: 0.2em;
   height: max-content;
   max-width: 768px;
   padding: 2em;
+  box-shadow: 0.2em 0.1em 0.6em rgba(0, 0, 0, 0.1);
+  font-size: 1.6em;
+}
+
+.button-answer {
+  outline: none;
+  border: none;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* popup */
+.popup-answer-container {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-answer {
+  padding: 1em;
+  background: whitesmoke;
   border-radius: 0.2em;
+  min-width: 364px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.button-choice {
+  background: whitesmoke;
+  cursor: pointer;
+  padding: 0.2em;
+  transition: background 0.3s;
+}
+.button-choice:hover {
+  background: limegreen;
 }
