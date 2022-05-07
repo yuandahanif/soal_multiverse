@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import "./App.css";
 import fetchJson from "./libs/fetcher";
@@ -14,10 +15,12 @@ const AnswerPopup = () => {
 };
 
 function App() {
-  const url =
-    "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json";
+  const [urls, setUrls] = useState([
+    "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json",
+  ]);
 
-  const query = useQuery("todos", () => fetchJson(url));
+  const query = useQuery("main_story", () => fetchJson(urls[urls.length - 1]));
+
   return (
     <div className="App">
       <AnswerPopup />
