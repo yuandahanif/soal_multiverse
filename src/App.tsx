@@ -1,7 +1,13 @@
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import "./App.css";
+import fetchJson from "./libs/fetcher";
 
 function App() {
-  return <div className="App">test build</div>;
+  const url =
+    "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json";
+
+  const query = useQuery("todos", () => fetchJson(url));
+  return <div className="App">{query.isSuccess && query.data?.main_story}</div>;
 }
 
 export default App;
