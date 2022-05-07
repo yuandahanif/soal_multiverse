@@ -18,6 +18,10 @@
   font-size: 1.6em;
 }
 
+.story-section {
+  margin-bottom: .8em;
+}
+
 .button-answer {
   outline: none;
   border: none;

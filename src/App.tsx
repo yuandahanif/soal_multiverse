@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { useQuery, useMutation, useQueryClient } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import "./App.css";
 import fetchJson from "./libs/fetcher";
+
+const initUrl =
+  "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json";
 
 const AnswerPopup = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -12,18 +15,39 @@ const AnswerPopup = ({ children }: { children?: React.ReactNode }) => {
 };
 
 function App() {
-  const [url, setUrl] = useState<string | null>(
-    "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/story.json"
-  );
-
-  const [stories, setStories] = useState<{ [key: string]: any }[]>([]);
+  const [url, setUrl] = useState<string | null>(null);
+  const [isFetchingNextStory, setIsFetchingNextStory] = useState(false);
+  const [stories, setStories] = useState<{ [key: string]: any }>({});
   const [answers, setAnswers] = useState<any[]>([]);
 
   const [answerOptions, setAnsweroptions] = useState<any[] | null>(null);
 
+  const query = useQuery("main_story", () => fetchJson(initUrl), {
+    onSuccess: (data) => {
+      setStories((s) => {
+        return { ...s, [initUrl]: data };
+      });
+    },
+  });
+
+  const nextQuestionMutation = useMutation((url: string) => fetchJson(url), {
+    onSuccess: (story) => {
+      setIsFetchingNextStory(false);
+      setStories((s) => {
+        return { ...s, [url!]: story };
+      });
+    },
+  });
+
   const answerQuestion = (answer: any) => {
-    setAnswers(answer.text);
+    setAnswers((s) => {
+      return [...s, answer.text];
+    });
+
+    setIsFetchingNextStory(true);
     setUrl(answer.url);
+    setAnsweroptions(null);
+    nextQuestionMutation.mutate(answer.url);
   };
 
   const askQuestion = (options: any) => {
@@ -34,19 +58,11 @@ function App() {
     setAnsweroptions(null);
   };
 
-  const query = useQuery("main_story", () => fetchJson(url!), {
-    enabled: url !== null,
-  });
-
-  useEffect(() => {
-    if (query.isSuccess && url !== null) {
-      setStories((s) => {
-        const newStory: any = {};
-        newStory[url] = query.data;
-        return { ...s };
-      });
-    }
-  }, [query.data, query.isSuccess, url]);
+  const restartQuestion = () => {
+    setAnswers([]);
+    setStories({});
+    query.refetch();
+  };
 
   return (
     <div className="App">
@@ -74,25 +90,40 @@ function App() {
 
       <div className="container handwriting-font">
         {stories &&
-          stories.map((story, index) => (
-            <div key={story.id}>
-              {query.isSuccess && query.data?.main_story.split("[pilihan]")[0]}
+          Object.keys(stories).map((key: string, index) => (
+            <div key={key} className="story-section">
+              {stories[key].main_story.split("[pilihan]")[0]}
+
               {answers[index] ? (
-                answers[index]?.text
-              ) : (
+                answers[index]
+              ) : stories[key].options.length > 0 ? (
                 <button
                   className="button-answer redacted-font"
                   onClick={(e) => {
                     e.preventDefault();
-                    askQuestion(query.data.options);
+                    askQuestion(stories[key].options);
                   }}
                 >
                   [redacted]
                 </button>
+              ) : (
+                <>
+                  <div>
+                    Tamat.
+                    <button onClick={restartQuestion}>ulang cerita</button>
+                  </div>
+                </>
               )}
-              {query.isSuccess && query.data?.main_story.split("[pilihan]")[1]}
+
+              {stories[key].main_story.split("[pilihan]")[1]}
             </div>
           ))}
+
+        {(query.isLoading || isFetchingNextStory) && (
+          <>
+            <span>sedang memuat data......</span>
+          </>
+        )}
       </div>
     </div>
   );
