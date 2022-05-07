@@ -41,6 +41,7 @@ function App() {
     },
     onError: (err) => {
       console.error(err);
+      console.error("Soal: cari cerita di timeline ini.");
       setIsFetchingNextStory(false);
       setErrorMessage("Error: Timeline tidak dapat dimuat.");
     },
