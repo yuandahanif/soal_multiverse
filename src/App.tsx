@@ -103,7 +103,9 @@ function App() {
               {stories[key].main_story.split("[pilihan]")[0]}
 
               {answers[index] ? (
-                answers[index]
+                <>
+                  <span className="text-answer">{answers[index]}</span>
+                </>
               ) : stories[key].options.length > 0 ? (
                 <button
                   className="button-answer redacted-font"

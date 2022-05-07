@@ -48,6 +48,14 @@
   text-align: center;
 }
 
+.text-answer {
+  border-radius: 0.07em;
+  display: inline-block;
+  padding: 0 0.3em;
+  font-weight: 700;
+  background: darkgrey;
+}
+
 /* popup */
 .popup-answer-container {
   position: fixed;
