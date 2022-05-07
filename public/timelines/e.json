@@ -1,0 +1,16 @@
+{
+  "id": "main_story_option_e",
+  "main_story": "Setelah sampai di kedai makanan ternyata terrdapat banyak varian telur yang sedang dijual. Namun, hariini kau hanya ingin makan dua varian yaitu pedas dan biasa, namun tentu kau tak bisa membeli dua-duanya karena ini akhir bulan *(biasa lah, masalah anak kos). Setelah berpikir keras, akhirnya kau memutuskan untuk membeli [pilihan] sebagai menu sarapanmu pagi ini.",
+  "options": [
+    {
+      "id": "e",
+      "text": "telur balado",
+      "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/e.json"
+    },
+    {
+      "id": "f",
+      "text": "telur dadar",
+      "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/f.json"
+    }
+  ]
+}
