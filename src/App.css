@@ -24,6 +24,10 @@
   background: none;
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s;
+}
+.button-answer:hover {
+  color: darkgreen;
 }
 
 /* popup */
