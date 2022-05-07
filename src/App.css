@@ -1,38 +1,91 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: darkgrey;
   min-height: 100vh;
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.container {
+  position: relative;
+  background-color: whitesmoke;
+  border-radius: 0.2em;
+  height: max-content;
+  max-width: 768px;
+  padding: 2em;
+  box-shadow: 0.2em 0.1em 0.6em rgba(0, 0, 0, 0.1);
+  font-size: 1.6em;
+}
+
+.story-section {
+  margin-bottom: 0.8em;
+}
+
+.button-answer {
+  outline: none;
+  border: none;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.button-answer:hover {
+  color: darkgreen;
+}
+
+.story-section-end {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 2em;
+  row-gap: 0.5em;
 }
 
-.App-link {
-  color: #61dafb;
+.message-error {
+  color: red;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-answer {
+  border-radius: 0.07em;
+  display: inline-block;
+  padding: 0 0.3em;
+  font-weight: 700;
+  background: darkgrey;
+}
+
+/* popup */
+.popup-answer-container {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-answer {
+  padding: 1em;
+  background: whitesmoke;
+  border-radius: 0.2em;
+  min-width: 364px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.button-choice {
+  background: whitesmoke;
+  cursor: pointer;
+  padding: 0.2em;
+  transition: background 0.3s;
+}
+.button-choice:hover {
+  background: limegreen;
 }
