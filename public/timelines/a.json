@@ -1,4 +1,5 @@
 {
-  "main_story": "Langsung berangkat kekampus karnena ingin belajar. Sialnya kau kelaparan saat mengerjakan ujian sehingga tidak dapat fokus saat mengerjakan. Tamat.",
+  "id": "main_story_option_a_deadend",
+  "main_story": "Sesampainya dikampus kau membuka catatan yang sudah kau buat, mencoba untuk memahami lebih dalam materi yang akan muncul di ujian hari ini. Waktu ujuan pun tiba, sialnya karena pagi ini kau tidak sarapan kau harus mengikuti ujuan dengan perut kelaparan. Karena perut yang terus berbunyi kau tidak bisa fokus mengerjakan soal. Tamat.",
   "options": []
 }
