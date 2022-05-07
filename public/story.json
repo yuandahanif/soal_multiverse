@@ -1,11 +1,11 @@
 {
-  "main_story": "Pada senin pagi yang cerah kau terbangun dengan bersemangat, karena tak seperti senain lainnya hari ini adalah senin yang spesial. Hari ini adalah ahri pertama ujian tengah semester jadi kau harus berangkat lebih awal agar tidak terlambat dan dan akhirnya mengulang :(",
+  "main_story": "Pada senin pagi yang cerah kau terbangun dengan penuh semangat, tak seperti senain lainnya hari ini adalah hari senin yang spesial. Hari ini adalah hari pertama ujian tengah semester jadi kau harus berangkat lebih awal agar tidak terlambat dan berakhir dengan mengulang mata kuliah 😢. Setelah selesai memperiapkan semuanya akhirnya tiba waktunya untuk berangkat. Setelah keluar dan mengunci pintu kosmu kau memutuskan untuk [pilihan].",
   "options": [
     {
       "id": "a",
-      "text": "enggak makan",
+      "text": "lansung berangkat ke kampus",
       "url": "https://raw.githubusercontent.com/yuandahanif/soal_multiverse/story/public/timelines/a.json"
     },
-    { "id": "b", "text": "makan", "url": "" }
+    { "id": "b", "text": "membeli sarapan terlebih dahulu", "url": "" }
   ]
 }
