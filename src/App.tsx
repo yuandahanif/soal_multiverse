@@ -41,7 +41,7 @@ function App() {
     },
     onError: (err) => {
       console.error(err);
-      console.error("Soal: coba cari cerita buat timeline yang hilang ini.");
+      console.error("Soal: cari cerita buat timeline yang hilang ini.");
       console.error(
         "Cara jawab: nanti klo jawabanya ketemu, cara jawabnya juga ada disitu."
       );
@@ -74,6 +74,8 @@ function App() {
     setStories({});
     query.refetch();
   };
+
+  // FIXME: cie baca source code nya, tapi sayang jawabanya gaada disini. coba cari di bagian commit.
 
   return (
     <div className="App">
